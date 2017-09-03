@@ -40,16 +40,11 @@ var arrivalTime = "";
 
 database.ref().on("child_added", function(childSnapshot) {
 
-  convertedFirstTrainTime = moment(childSnapshot.val().firstTrainTime, "LT");
-  //console.log(convertedFirstTrainTime);
+  convertedFirstTrainTime = moment(childSnapshot.val().firstTrainTime, "LT").subtract(1, "years");
   minutesSinceFirstTrainTime = moment().diff(convertedFirstTrainTime, "minutes");
-  console.log(minutesSinceFirstTrainTime);
   remainder = parseInt(minutesSinceFirstTrainTime) % childSnapshot.val().frequency;
-  //console.log(remainder);
-  minutesAway = frequency - remainder;
-  //console.log(minutesAway);
+  minutesAway = childSnapshot.val().frequency - remainder;
   arrivalTime = moment().add(minutesAway, "minutes").format("LT");
-  //console.log(arrivalTime);
 
  
   $("#tableBody").append("<tr><td id='name'>" + childSnapshot.val().trainName + "</td><td id='trainDestination'>" + childSnapshot.val().destination

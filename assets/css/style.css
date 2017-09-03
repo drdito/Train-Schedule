@@ -1,0 +1,27 @@
+body {
+  background-image: url("../images/train.jpg");
+  background-size: cover;
+}
+
+.jumbotron {
+  background-color: rgba(53, 39, 39, 0.43);
+  color: #fff;
+  border: solid;
+  border-width: 1px;
+  border-color: #337ab7;
+}
+
+.panel-transparent {
+  background: none;
+}
+
+.panel-transparent .panel-heading {
+  background: rgba(53, 39, 39, 0.43);
+  color: #fff;
+}
+
+.panel-transparent .panel-body{
+  background: rgba(53, 39, 39, 0.43);
+  color:#fff;
+}
+
